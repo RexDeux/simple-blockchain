@@ -7,7 +7,7 @@ pub struct Blockchain {
 }
 
 impl Blockchain {
-    pub fn verify (&self) -> bool {
+    pub fn update_with_block (&mut self, block: Block) -> bool {
         for (i, block) in self.blocks.iter().enumerate() {
             if block.index != i as u32 {
                 println!("Index mismatch {} != {}",
