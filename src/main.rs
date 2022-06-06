@@ -4,7 +4,7 @@ fn main() {
 
     let difficulty = 0x000fffffffffffffffffffffffffffff;
 
-    let mut block = Block::new(0, 0, vec![0; 32], 0, "Genesis 
+    let mut block = Block::new(0, now(), vec![0; 32], 0, "Genesis 
     block!".to_owned(), difficulty);
 
     block.mine();
@@ -19,7 +19,7 @@ fn main() {
 
 
     for i in 1..=10 {
-        let mut block = Block::new(i, 0, last_hash, 0, "Another block".to_owned(), difficulty);
+        let mut block = Block::new(i, now(), last_hash, 0, "Another block".to_owned(), difficulty);
 
         block.mine();
 
