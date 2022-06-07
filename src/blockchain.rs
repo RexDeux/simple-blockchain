@@ -2,6 +2,8 @@
 use std::collections::HashSet;
 
 use super::*;
+
+#[derive(Debug)]
 pub enum BlockValidationErr {
     MismatchedIndex,
     InvalidHash,
@@ -19,6 +21,12 @@ pub struct Blockchain {
 }
 
 impl Blockchain {
+    pub fn new () -> Self {
+        Blockchain {
+            blocks: vec![],
+            unspent_outputs: HashSet::new(),
+        }
+    }
     pub fn update_with_block (&mut self, block: Block) -> Result <()
     , BlockValidationErr> {
         let i = self.blocks.len();
